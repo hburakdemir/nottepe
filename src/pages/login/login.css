@@ -1,0 +1,280 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/public/images/login2_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.login-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.login-form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.login-form-group input {
+  width: 100%;
+  padding: 12px 20px;
+  padding-right: 40px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.login-form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.login-form-group.error input {
+  box-shadow: 0 0 0 2px rgba(255, 99, 99, 0.5);
+}
+
+.login-error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-left: 15px;
+  text-align: left;
+  position: absolute;
+}
+
+.login-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.login-button-container {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 1.5rem;
+}
+
+.login-submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-submit-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
+}
+
+.login-error-general {
+  text-align: center;
+  position: static;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #ff6b6b;
+}
+
+.login-register-text {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-register-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.login-register-link:hover {
+  text-decoration: underline;
+}
+
+#login-username-box,
+#login-password-box,
+#login-password-label,
+#login-username-label{
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+#kayıt-ol {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  cursor: pointer;
+  margin-top: 30px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  
+  margin: 30px auto ;
+  width: 30%;
+}
+
+.left-container {
+  background-color: #000000; 
+  width: 50%; 
+  height: 100vh;
+  color:white;
+  text-decoration: double;
+  
+}
+
+.left-baslik {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+ padding-top: 1in;
+}
+
+.left-altbaslik{
+  padding-top: 2.5in;
+  text-align: right;
+  margin-right: 1in;
+}
+.left-text {
+  margin-left: 1in;
+  padding-top: 2.5in;
+  
+}
+
+.non-register{
+  color: black;
+  text-align: center;
+  font-size: 10px;
+ cursor: pointer;
+  margin: -20px auto;
+}
+
+/* Mobil cihazlar için medya sorguları */
+@media screen and (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+
+  .login-box {
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .login-form-group input {
+    padding: 10px 15px;
+    padding-right: 35px;
+    font-size: 0.9rem;
+  }
+
+  .login-icon {
+    font-size: 1rem;
+    right: 12px;
+  }
+
+  .login-submit-btn {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .login-register-text {
+    font-size: 0.8rem;
+  }
+
+  .login-error-message {
+    font-size: 0.75rem;
+    margin-left: 12px;
+  }
+
+  .login-button-container {
+    height: 50px;
+  }
+}
+
+/* Tablet cihazlar için medya sorguları */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .login-box {
+    padding: 2rem;
+    max-width: 380px;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Yatay mobil cihazlar için medya sorguları */
+@media screen and (max-height: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+
+  .login-box {
+    padding: 1.2rem;
+  }
+
+  .login-form-group {
+    margin-bottom: 1rem;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-submit-btn {
+    margin-bottom: 1rem;
+  }
+}
+  
