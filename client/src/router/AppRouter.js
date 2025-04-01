@@ -8,7 +8,7 @@ import Register from '../pages/register/register';
 import Profile from '../pages/profile/profile.js';
 
 // beytepe
-import Edebiyat from '../pages/bölümler/beytepe/Edebiyat/Edebiyat.js'
+import Edebiyat from '../pages/bölümler/beytepe/Edebiyat/Edebiyat.jsx'
 import Egitim from '../pages/bölümler/beytepe/Egitim/Egitim.js'
 import Fen from '../pages/bölümler/beytepe/Fen/Fen.js'
 import GuzelSanatlar from '../pages/bölümler/beytepe/GuzelSanatlar/GuzelSanatlar.js'

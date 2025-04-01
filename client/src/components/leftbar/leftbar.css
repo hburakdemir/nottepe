@@ -1,0 +1,188 @@
+.leftbar {
+  width: 240px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  padding-top: 50px;
+  z-index: 1000;
+}
+
+.menu-section {
+  margin-bottom: 2rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+}
+
+.menu-item.active {
+  background-color: #2D336B;
+  color: white;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+}
+
+.campus-section h3 {
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.campus-container {
+  margin-bottom: 0.5rem;
+}
+
+.campus-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+}
+
+.campus-header:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+}
+
+.campus-header.expanded {
+  background-color: #2D336B;
+  color: white;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.campus-header.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.departments-list {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.department-item {
+  padding: 0.5rem 1rem;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.department-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+}
+
+.department-item.active {
+  background-color: #2D336B;
+  color: white;
+}
+
+.department-item .expand-icon {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.department-item:hover .expand-icon {
+  opacity: 1;
+}
+
+/* Mobil görünüm */
+.mobile-header {
+  cursor: pointer;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 56px;
+  z-index: 1001;
+  padding: 0 1rem;
+  align-items: center;
+  
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-icon {
+  font-size: 24px;
+  color: #ff0202;
+  background-color: transparent; /* Arka planı şeffaf yap */
+  padding: 0.25rem; /* İkonun etrafında küçük bir boşluk bırak */
+  border-radius: 50%; /* Yuvarlak kenarlar */
+  display: inline-block; /* Yalnızca ikona bağlı element */
+}
+
+.book-icon.hidden{
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-header {
+    display: flex;
+
+  }
+  
+
+  .leftbar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .leftbar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .leftbar.mobile-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    z-index: -1;
+  }
+
+  .leftbar-content {
+    padding-top: 4rem;
+  }
+} 

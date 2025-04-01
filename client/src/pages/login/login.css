@@ -3,6 +3,28 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
+.login-title{
+  top:80px;
+  width: 100%;
+  position: absolute;
+}
+
+
+.login-titleh1 {
+ 
+
+  font-size: 40px;
+  background-color: rgb(128, 0, 128, 0.8);
+  border-radius: 20px;
+  padding:20px 20px;
+  display: inline-block; 
+}
+
+
+
 .login-container {
   width: 100%;
   min-height: 100vh;

@@ -1,11 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaRegComment, FaRegHeart, FaRegShareSquare } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import CreatePostButton from '../../../../components/CreatePostButton/CreatePostButton';
 import './Edebiyat.css';
 
 export default function EdebiyatView() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
+
+  const bölümler = [
+    { id: 1, name: "Alman Dili ve Edebiyatı", route: "/edebiyat/ade" },
+    { id: 2, name: "Almanca Mütercim ve Tercümanlık", route: "/edebiyat/amt" },
+    { id: 3, name: "Amerikan Kültürü ve Edebiyatı", route: "/edebiyat/ake" },
+    { id: 4, name: "Antropoloji", route: "/edebiyat/antropoloji" },
+    { id: 5, name: "Arkeoloji", route: "/edebiyat/arkeoloji" },
+    { id: 6, name: "Bilgi ve Belge Yönetimi", route: "/edebiyat/bby" },
+    { id: 7, name: "Çağdaş Türk Lehçeleri ve Edebiyatları", route: "/edebiyat/ctl" },
+    { id: 8, name: "Felsefe", route: "/edebiyat/felsefe" },
+    { id: 9, name: "Fransız Dili ve Edebiyatı", route: "/edebiyat/fde" },
+    { id: 10, name: "Fransızca Mütercim ve Tercümanlık", route: "/edebiyat/fmt" },
+    { id: 11, name: "İngiliz Dilbilimi", route: "/edebiyat/id" },
+    { id: 12, name: "İngiliz Dili ve Edebiyatı", route: "/edebiyat/id" },
+    { id: 13, name: "İngilizce Mütercim ve Tercümanlık", route: "/edebiyat/imt" },
+    { id: 14, name: "Psikoloji", route: "/edebiyat/psy" },
+    { id: 15, name: "Sanat Tarihi", route: "/edebiyat/st" },
+    { id: 16, name: "Sosyoloji", route: "/edebiyat/ssy" },
+    { id: 17, name: "Tarih", route: "/edebiyat/tarih" },
+    { id: 18, name: "Türk Dili ve Edebiyatı", route: "/edebiyat/tde" }
+  ];
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -26,6 +51,23 @@ export default function EdebiyatView() {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('tr-TR', {
@@ -42,9 +84,30 @@ export default function EdebiyatView() {
   }
 
   return (
-    <div className="department-container">
+    <div className="edebiyat-container">
       <div className="posts-section">
-        <h1 className="department-title">Edebiyat Fakültesi</h1>
+        <h1 className="edebiyat-title">Edebiyat Fakültesi</h1>
+
+        <div className="bölümler-dropdown" ref={menuRef}>
+          <button className="bölümler-button" onClick={toggleMenu}>
+            Edebiyat Fakültesi Bölümleri
+          </button>
+          <div className={`bölümler-menu ${isMenuOpen ? 'active' : ''}`}>
+            {bölümler.map((bölüm) => (
+              <div
+                key={bölüm.id}
+                className="bölüm-item"
+                onClick={() => {
+                  navigate(bölüm.route);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {bölüm.name}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {posts.length === 0 ? (
           <div className="no-posts">Henüz gönderi bulunmuyor.</div>
         ) : (

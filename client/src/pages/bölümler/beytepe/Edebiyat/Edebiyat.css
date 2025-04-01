@@ -1,0 +1,336 @@
+.page-container {
+  display: grid;
+  grid-template-columns: 300px 1fr 600px 1fr 300px;
+  padding: 20px;
+  padding-top: 80px;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.edebiyat-container {
+  grid-column: 3 / 4;
+  width: 100%;
+}
+
+.edebiyat-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bölümler-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 30px;
+}
+
+.bölümler-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.bölümler-button:hover {
+  background-color: #e9ecef;
+}
+
+.bölümler-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.bölümler-menu.active {
+  display: block;
+}
+
+.bölüm-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.bölüm-item:last-child {
+  border-bottom: none;
+}
+
+.bölüm-item:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* Post stilleri */
+.post-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7886C7;
+}
+
+.username {
+  font-weight: 600;
+  color: #333;
+  font-size: 15px;
+}
+
+.topic-title {
+  background: #7886C7;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.post-content {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+}
+
+.post-title {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.post-text {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.post-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.action-button:hover {
+  background: #f0f0f0;
+  color: #7886C7;
+}
+
+.action-button svg {
+  font-size: 18px;
+}
+
+.post-date {
+  color: #999;
+  font-size: 13px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-posts {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #666;
+  font-size: 16px;
+}
+
+/* Tablet için medya sorguları */
+@media screen and (max-width: 1024px) {
+  .page-container {
+    grid-template-columns: 1fr 600px 1fr;
+  }
+
+  .edebiyat-container {
+    grid-column: 2 / 3;
+  }
+}
+
+/* Mobil için medya sorguları */
+@media screen and (max-width: 768px) {
+  .page-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    padding-top: 60px;
+  }
+
+  .edebiyat-container {
+    grid-column: 1 / -1;
+  }
+
+  .edebiyat-title {
+    font-size: 20px;
+    padding: 12px;
+  }
+
+  .post-card {
+    padding: 15px;
+  }
+
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .post-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .post-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .action-button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .action-button svg {
+    font-size: 16px;
+  }
+
+  .bölümler-dropdown {
+    max-width: 100%;
+  }
+
+  .bölümler-menu {
+    max-height: 300px;
+  }
+}
+
+/* Küçük mobil cihazlar için medya sorguları */
+@media screen and (max-width: 480px) {
+  .page-container {
+    padding: 5px;
+    padding-top: 50px;
+  }
+
+  .edebiyat-title {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .post-title {
+    font-size: 18px;
+  }
+
+  .post-text {
+    font-size: 13px;
+  }
+
+  .post-content {
+    padding: 15px;
+  }
+
+  .profile-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .username {
+    font-size: 14px;
+  }
+
+  .topic-title {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .action-button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .action-button svg {
+    font-size: 14px;
+  }
+
+  .post-date {
+    font-size: 12px;
+  }
+} 
